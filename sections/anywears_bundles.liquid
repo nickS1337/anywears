@@ -1,0 +1,123 @@
+{% schema %}
+  {
+    "name": "BUNDLES",
+    "settings": [],
+    "presets": [
+      {
+        "name": "anywears-bundles"
+      }
+    ]
+  }
+{% endschema %}
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link
+  rel="preconnect"
+  href="https://fonts.gstatic.com"
+  crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300&family=Roboto+Mono:wght@200;300;400;500&display=swap" rel="stylesheet">
+
+<div class="anywears-showcase">
+
+  <div class="anywears-showcase-text">
+    <div class="anywears-showcase-text-inner">
+      <div class="anywears-showcase-text-tc">
+        <div class="anywears-showcase-ttitle">
+          ANY(ONE)<br>WEARS
+        </div>
+        <div class="anywears-description">
+          Vintage and second hand goods for anyone to wear.
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="anywears-showcase-image" style="background-image: url('{{  'DSC06734.JPG' | asset_url }});'"></div>
+  <div class="anywears-showcase-image" style="background-image: url('{{  'DSC06713.JPG' | asset_url }});'"></div>
+  <div class="anywears-showcase-image" style="background-image: url('{{  'DSC06734.JPG' | asset_url }});'"></div>
+  <div class="anywears-showcase-image" style="background-image: url('{{  'DSC06713.JPG' | asset_url }});'"></div>
+
+
+</div>
+
+{% style %}
+
+  .anywears-showcase {
+    position: relative;
+    width: 100%;
+    height: fit-content;
+    text-align: center;
+    padding-top: 4em;
+    padding-bottom: 4em;
+  }
+
+  .anywears-showcase-image {
+    position: relative;
+    display: inline-block !important;
+    vertical-align: middle;
+    height: 17em;
+    width: 19em;
+    background-color: #ccc;
+    border-radius: 18px;
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    margin-left: 0.25em;
+    margin-right: 0.25em;
+  }
+
+  .anywears-showcase-text {
+    position: relative;
+    display: inline-block;
+    vertical-align: middle;
+    height: 17em;
+    max-width: 25em;
+  }
+
+  .anywears-showcase-text-inner {
+    position: relative;
+    display: table;
+    vertical-align: middle;
+    height: 100%;
+    width: 100%;
+  }
+
+  .anywears-showcase-text-tc {
+    position: relative;
+    display: table-cell;
+    padding: 0.5em;
+    box-sizing: border-box;
+    height: fit-content;
+    width: 100%;
+    text-align: right;
+    vertical-align: middle;
+  }
+
+  .anywears-showcase-ttitle {
+    position: relative;
+    color: #F00;
+    text-align: right;
+    font-size: 2.2em;
+    font-family: "Roboto Mono";
+    letter-spacing: 0.77656rem;
+    font-weight: 400;
+    margin-bottom: 0.5em;
+  }
+
+  .anywears-description {
+    position: relative;
+    font-family: "Inter";
+    line-height: 1.2em;
+    font-size: 1.5em;
+    color: #000;
+  }
+
+  .noun {
+    color: #FF7575;
+    font-weight: bold;
+  }
+
+  .bold {
+    font-weight: bold;
+  }
+{% endstyle %}

@@ -1,0 +1,100 @@
+{% schema %}
+  {
+    "name": "FITSPO",
+    "settings": [],
+    "presets": [
+      {
+        "name": "anywears-fitspo"
+      }
+    ]
+  }
+{% endschema %}
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link
+  rel="preconnect"
+  href="https://fonts.gstatic.com"
+  crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300&family=Roboto+Mono:wght@200;300;400;500&display=swap" rel="stylesheet">
+
+<div class="fitspo-container" style="background-image: url({{ "52101381410_a8c6686097_o.jpg" | asset_url }})">
+  <div class="fitspo-inner">
+
+    <div class="fitspo-title">
+      <div class="fitspo-big">fitspo</div>
+      <div class="fitspo-small">/fit-spow/</div>
+    </div>
+    <div class="fitspo-descriptions">
+      <div class="fitspo-description">
+        <a class="noun">NOUN.</a>
+        Short for
+        <a class="bold">outfit inspiration.</a>
+      </div>
+      <div class="fitspo-description">Refers to photos and content that serves as fashion inspiration or motivation.</div>
+    </div>
+
+  </div>
+</div>
+
+{% style %}
+
+  .fitspo-container {
+    position: relative;
+    display: block;
+    width: 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+    padding: 4.5em;
+    font-family: "Inter";
+  }
+
+  .fitspo-inner {
+    position: relative;
+    width: fit-content;
+    height: fit-content;
+    left: 50%;
+    transform: translateX(-50%);
+    color: #fff;
+    padding: 2.5em;
+  }
+
+  .fitspo-title {
+    position: relative;
+    font-family: "Roboto Mono";
+    font-size: 1.65em;
+    box-sizing: border-box;
+    margin-bottom: 0.5em;
+  }
+
+  .fitspo-big {
+    position: relative;
+    font-weight: bold !important;
+    display: inline-block;
+  }
+
+  .fitspo-small {
+    position: relative;
+    display: inline-block;
+    font-size: 200 !important;
+  }
+
+  .fitspo-descriptions {
+    line-height: 1.8em;
+  }
+
+  .fitspo-description {
+    position: relative;
+    font-size: 1.25em;
+  }
+
+  .noun {
+    color: #FF7575;
+    font-weight: bold;
+  }
+
+  .bold {
+    font-weight: bold;
+  }
+{% endstyle %}

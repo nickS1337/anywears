@@ -1,5 +1,15 @@
 {
   "sections": {
+    "3bdcfa38-51d8-4746-b1b0-416ac319299b": {
+      "type": "anywears_fitspo",
+      "settings": {
+      }
+    },
+    "82ae5bf4-3bbb-46aa-b10c-f27632e0d4ca": {
+      "type": "anywears_bundles",
+      "settings": {
+      }
+    },
     "22f28898-2f06-47b1-97fb-8f969d56e5d2": {
       "type": "image-banner",
       "disabled": true,
@@ -118,7 +128,6 @@
         "dbfff699-c7e2-4c60-a775-014c6bf9e98b": {
           "type": "column",
           "settings": {
-            "image": "shopify:\/\/shop_images\/SYL95572.jpg",
             "title": "Top",
             "text": "",
             "link_label": "Buy me",
@@ -326,7 +335,6 @@
         "d2e9418d-3bcb-4586-806a-bd51b308edef": {
           "type": "column",
           "settings": {
-            "image": "shopify:\/\/shop_images\/SYL9605.jpg",
             "title": "Top",
             "text": "",
             "link_label": "Buy me",
@@ -465,6 +473,8 @@
     }
   },
   "order": [
+    "3bdcfa38-51d8-4746-b1b0-416ac319299b",
+    "82ae5bf4-3bbb-46aa-b10c-f27632e0d4ca",
     "22f28898-2f06-47b1-97fb-8f969d56e5d2",
     "50907f24-0ef6-48f5-9dc9-5bd5bb472328",
     "ed9d77a3-7491-475f-b81d-92619bab5859",

@@ -1,0 +1,38 @@
+{% schema %}
+  {
+    "name": "BUNDLE",
+    "settings": [],
+    "presets": [
+      {
+        "name": "anywears-bundle"
+      }
+    ]
+  }
+{% endschema %}
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link
+  rel="preconnect"
+  href="https://fonts.gstatic.com"
+  crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300&family=Roboto+Mono:wght@200;300;400;500&display=swap" rel="stylesheet">
+
+<div class="bitem-container">
+  <div class="bitem-inner"></div>
+</div>
+
+{% style %}
+
+  .bitem-container {
+    position: relative;
+    width: 100%;
+    height: fit-content;
+  }
+  .bitem-inner {
+    position: relative;
+    width: 70%;
+    left: 50%;
+    transform: translateX(-50%);
+    height: fit-content;
+  }
+{% endstyle %}

@@ -36,7 +36,90 @@
   <div class="anywears-showcase-image" style="background-image: url('{{  'DSC06734.JPG' | asset_url }});'"></div>
   <div class="anywears-showcase-image" style="background-image: url('{{  'DSC06713.JPG' | asset_url }});'"></div>
 
+</div>
 
+<div class="anywears-bundles">
+  <div class="anywears-bundles-inner">
+    <div class="bundles-image" style="background-image: url('{{  'DSC06713.JPG' | asset_url }});'"></div>
+    <div class="bundles-table-container">
+      <div class="bundles-table-title">Explore our exclusive bundle deals</div>
+      <table class="bundles-table">
+        <tr>
+          <th>Bundle</th>
+          <th>1</th>
+          <th>2</th>
+          <th>3</th>
+          <th>4</th>
+        </tr>
+        <tr>
+          <td>Top</td>
+          <td></td>
+          <td>
+            <div class="check" style="background-image: url('{{ "checkbox_b.png" | asset_url  }}')"></div>
+          </td>
+          <td>
+            <div class="check" style="background-image: url('{{ "checkbox_b.png" | asset_url  }}')"></div>
+          </td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>Bottom</td>
+          <td>
+            <div class="check" style="background-image: url('{{ "checkbox_b.png" | asset_url  }}')"></div>
+          </td>
+          <td>
+            <div class="check" style="background-image: url('{{ "checkbox_b.png" | asset_url  }}')"></div>
+          </td>
+          <td>
+            <div class="check" style="background-image: url('{{ "checkbox_b.png" | asset_url  }}')"></div>
+          </td>
+          <td></td>
+        </tr>
+        </tr>
+        <tr>
+          <td>Bottom</td>
+          <td>
+            <div class="check" style="background-image: url('{{ "checkbox_b.png" | asset_url  }}')"></div>
+          </td>
+          <td>
+            <div class="check" style="background-image: url('{{ "checkbox_b.png" | asset_url  }}')"></div>
+          </td>
+          <td>
+            <div class="check" style="background-image: url('{{ "checkbox_b.png" | asset_url  }}')"></div>
+          </td>
+          <td></td>
+        </tr>
+        </tr>
+        <tr>
+          <td>Bag/Shoes</td>
+          <td>
+            <div class="check" style="background-image: url('{{ "checkbox_b.png" | asset_url  }}')"></div>
+          </td>
+          <td>
+            <div class="check" style="background-image: url('{{ "checkbox_b.png" | asset_url  }}')"></div>
+          </td>
+          <td>
+            <div class="check" style="background-image: url('{{ "checkbox_b.png" | asset_url  }}')"></div>
+          </td>
+          <td></td>
+        </tr>
+        </tr>
+        <tr>
+          <td>Jacket</td>
+          <td>
+            <div class="check" style="background-image: url('{{ "checkbox_b.png" | asset_url  }}')"></div>
+          </td>
+          <td>
+            <div class="check" style="background-image: url('{{ "checkbox_b.png" | asset_url  }}')"></div>
+          </td>
+          <td>
+            <div class="check" style="background-image: url('{{ "checkbox_b.png" | asset_url  }}')"></div>
+          </td>
+          <td></td>
+        </tr>
+      </table>
+    </div>
+  </div>
 </div>
 
 {% style %}
@@ -110,6 +193,86 @@
     line-height: 1.2em;
     font-size: 1.5em;
     color: #000;
+  }
+
+  .anywears-bundles {
+    position: relative;
+    width: 100%;
+    display: flex;
+    padding: 4em 0;
+  }
+
+  .bundles-image {
+    position: relative;
+    display: inline-block !important;
+    height: 20em;
+    width: 20em;
+    margin-right: 1em;
+    background-color: #ccc;
+    border-radius: 18px;
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+  }
+
+  .anywears-bundles-inner {
+    position: relative;
+    width: 70%;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
+  .bundles-table-container {
+    position: relative;
+    display: inline-block;
+    vertical-align: top;
+  }
+
+  .bundles-table-title {
+    color: #FF0000;
+    font-size: 2em;
+    margin-bottom: 1em;
+    vertical-align: top;
+  }
+
+  .bundles-table {
+    position: relative;
+    background-color: #F8F8F8;
+    border-radius: 15px;
+    overflow: hidden;
+    border-collapse: collapse;
+    border: 0;
+    outline: none;
+    font-size: 1.5em;
+  }
+
+  .bundles-table tr th {
+    color: #FF0000;
+    font-weight: normal;
+    letter-spacing: 0.8em;
+    text-transform: uppercase;
+    text-align: center;
+    padding: 1em;
+  }
+
+  .bundles-table tr td {
+    padding: 0.6em;
+    color: #000;
+  }
+
+  .bundles-table tr:nth-child(even) {
+    background-color: #FFC2C2;
+  }
+
+  .check {
+    position: relative;
+    display: block !important;
+    height: 1.5em;
+    width: 1.5em;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
   }
 
   .noun {

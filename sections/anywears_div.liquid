@@ -19,6 +19,7 @@
 
 <div class="fitspo-container" style="background-image: url({{ "52101381410_a8c6686097_o.jpg" | asset_url }})">
   <div class="fitspo-inner">
+    <div class="divider-icon" style="background-image: url('{{ "Bucket-1s-200px.gif" | asset_url }}')"></div>
     <div class="divider-title">Hand picked treasures.<br>Elegantly styled.<br>For you.</div>
   </div>
 </div>
@@ -34,6 +35,8 @@
     background-size: cover;
     background-attachment: fixed;
     padding: 4.5em;
+    border-top: 0.4em solid #FFC2C2;
+    border-bottom: 0.4em solid #FFC2C2;
     font-family: "Inter";
   }
 
@@ -44,7 +47,8 @@
     left: 50%;
     transform: translateX(-50%);
     color: #fff;
-    padding: 2.5em;
+    padding: 1.5em;
+    line-height: 2em;
   }
 
   .fitspo-title {
@@ -68,7 +72,7 @@
   }
 
   .fitspo-descriptions {
-    line-height: 1.8em;
+    line-height: 1.5em;
   }
 
   .fitspo-description {
@@ -80,6 +84,19 @@
     position: relative;
     font-size: 1.65em;
     text-align: center;
+  }
+
+  .divider-icon {
+    position: relative;
+    display: block !important;
+    height: 5em;
+    width: 5em;
+    margin-bottom: 1em;
+    left: 50%;
+    transform: translateX(-50%);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
   }
 
   .noun {

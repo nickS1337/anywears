@@ -1,0 +1,226 @@
+{% schema %}
+  {
+    "name": "COLLECTIONS",
+    "settings": [],
+    "presets": [
+      {
+        "name": "anywears-collections"
+      }
+    ]
+  }
+{% endschema %}
+
+<script src="{{ "jquery.min.js" | script_tag }}"></script>
+<script src="{{ "jquery-ui.min.js" | script_tag }}"></script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link
+  rel="preconnect"
+  href="https://fonts.gstatic.com"
+  crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300&family=Roboto+Mono:wght@200;300;400;500&display=swap" rel="stylesheet">
+
+
+<div class="collections-container">
+  <div class="collections-inner">
+    <div class="collections-title">Explore our collections</div>
+    <div class="collection">
+      <div class="collection-left">
+        <div class="collection-items">
+          <div class="collection-item">
+            <div class="collection-item-top">
+              <div class="collection-item-overlay"></div>
+              <div class="collection-item-title">Example Product</div>
+            </div>
+            <div class="collection-item-bottom">
+              <div class="collection-item-title">Example Product</div>
+              <div class="collection-item-price">$49.99</div>
+              <div class="explore-item">
+                <div class="explore-item-icon" style="background-image: url('{{ "click.png" | asset_url }}')"></div>
+                <div class="explore-item-txt">Explore this item</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="collection-right">
+        <div class="collection-items">
+          <div class="collection-item">
+            <div class="collection-item-top">
+              <div class="collection-item-overlay"></div>
+              <div class="collection-item-title">Example Product</div>
+            </div>
+            <div class="collection-item-bottom">
+              <div class="collection-item-title">Example Product</div>
+              <div class="collection-item-price">$49.99</div>
+              <div class="explore-item">
+                <div class="explore-item-icon" style="background-image: url('{{ "click.png" | asset_url }}')"></div>
+                <div class="explore-item-txt">Explore this item</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+  let Scollections = {};
+</script>
+
+{% for collection in collections %}
+  <script>
+    Scollections['{{ collection.title }}'] = [];
+  </script>
+  {% for collection_product in collection.products %}
+    <script>
+      console.log('{{ collection.title }}');
+      console.log('{{ collection_product.title }}');
+      console.log('{{ collection_product.url }}');
+      Scollections['{{ collection.title }}'].push({"id": "{{collection_product.id}}", "title": "{{collection_product.title}}", "href": "{{collection_product.url}}", "url": "{{ collection_product.featured_image  }}"});
+    </script>
+  {% endfor %}
+
+{% endfor %}
+
+{% style %}
+
+  .collections-container {
+    position: relative;
+    width: 100%;
+    padding: 4em 0;
+    font-family: "Inter";
+    height: fit-content;
+  }
+
+  .collections-inner {
+    position: relative;
+    width: 70%;
+    left: 50%;
+    transform: translate(-50%);
+  }
+
+  .collections-title {
+    position: relative;
+    font-size: 2.2em;
+    margin-bottom: 2em;
+    color: #F00;
+  }
+
+  .collection {
+    position: relative;
+    height: 25em;
+    width: 15em;
+    overflow: hidden;
+  }
+
+  .collection-title {
+    position: relative;
+    display: block;
+    font-size: 1.65em;
+    color: #000;
+    padding-bottom: 0.4em;
+    margin-bottom: 1em;
+    width: 100%;
+    border-bottom: 0.1em solid #ffc2c2;
+  }
+
+  .collection-item {
+    position: relative;
+    display: inline-block !important;
+    vertical-align: middle;
+    height: 25em;
+    width: 15em;
+    border-radius: 15px;
+    overflow: hidden;
+    background-color: #ccc;
+    cursor: pointer
+  }
+
+  .collection-left,
+  .collection-right {
+    position: absolute;
+    top: 0;
+  }
+
+  .collection-right {
+    left: 0;
+  }
+
+  .collection-left {
+    left: -100%;
+  }
+
+  .collection-item-top,
+  .collection-item-bottom {
+    position: absolute;
+    display: block !important;
+    height: 100%;
+    width: 100%;
+    transition: 0.5s ease all;
+    cursor: pointer;
+    box-sizing: border-box;
+    padding: 2em;
+  }
+
+  .collection-item-top {
+    top: 0;
+    left: 0;
+    background-color: #ccc;
+  }
+
+  .collection-item-bottom {
+    top: 100%;
+    left: 0;
+    background-color: #F00;
+    color: #fff;
+  }
+
+  .collection-item-title {
+    position: relative;
+    font-size: 1.65em;
+    line-height: 1.5em;
+    bottom: 0;
+    margin-top: auto;
+  }
+
+  .collection-item-price {
+    position: relative;
+    font-size: 1.3em;
+    color: #fff;
+    margin-top: 1em;
+  }
+
+  .explore-item {
+    position: relative;
+    font-size: 1em;
+    color: #fff;
+    margin-top: 1em;
+  }
+
+  .explore-item-icon {
+    position: relative;
+    display: block !important;
+    height: 2em;
+    width: 2em;
+    margin-bottom: 1em;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+  }
+
+  .collection-item:hover .collection-item-bottom {
+    top: 0;
+  }
+  .collection-item:hover .collection-item-top {
+    top: -100%
+  };
+  .collection-item-overlay {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    background-color: #ffc2c2;
+    opacity: 0.6;
+  }
+{% endstyle %}

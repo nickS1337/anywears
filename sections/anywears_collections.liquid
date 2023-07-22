@@ -10,8 +10,8 @@
   }
 {% endschema %}
 
-<script src="{{ "jquery.min.js" | script_tag }}"></script>
-<script src="{{ "jquery-ui.min.js" | script_tag }}"></script>
+{{ "jquery.min.js" | script_tag }}
+{{ "jquery-ui.min.js" | script_tag }}
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link
@@ -24,6 +24,73 @@
 <div class="collections-container">
   <div class="collections-inner">
     <div class="collections-title">Explore our collections</div>
+
+    <div class="collections-inner-container">
+
+      <script>
+        let Scollections = {};
+      </script>
+
+      {% for collection in collections %}
+        {% if collection.size != 0 %}
+          <div class="collection-title-name">{{ collection.title }}</div>
+        {% endif %}
+        <script>
+          Scollections[{{ collection.id }}] = [];
+        </script>
+        {% for collection_product in collection.products %}
+          <script>
+            Scollections[{{ collection.id }}].push({"id": "{{collection_product.id}}", "title": "{{collection_product.title}}", "href": "{{collection_product.url}}", "url": "{{ collection_product.featured_image  }}"});
+          </script>
+
+          {%- if forloop.number < 5 -%}
+            <div class="collection" id="{{ collection_product.id }}">
+              <div class="collection-left">
+                <div class="collection-items">
+                  <div class="collection-item">
+                    <div class="collection-item-top" style="background-image: url({{ collection_product.url }})">
+                      <div class="collection-item-overlay"></div>
+                      <div class="collection-item-title">{{ collection_product.title }}</div>
+                    </div>
+                    <div class="collection-item-bottom">
+                      <div class="collection-item-title">{{ collection_product.title }}</div>
+                      <div class="collection-item-price">$49.99</div>
+                      <div class="explore-item">
+                        <div class="explore-item-icon" style="background-image: url('{{ "click.png" | asset_url }}')"></div>
+                        <div class="explore-item-txt">Explore this item</div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="collection-right">
+                <div class="collection-items">
+                  <div class="collection-item">
+                    <div class="collection-item-top" style="background-image: url({{ collection_product.featured_image }})">
+                      <div class="collection-item-overlay"></div>
+                      <div class="collection-item-title">{{ collection_product.title }}</div>
+                    </div>
+                    <div class="collection-item-bottom">
+                      <div class="collection-item-title">{{ collection_product.title }}</div>
+                      <div class="collection-item-price">$49.99</div>
+                      <div class="explore-item">
+                        <div class="explore-item-icon" style="background-image: url('{{ "click.png" | asset_url }}')"></div>
+                        <div class="explore-item-txt">Explore this item</div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          {%- endif -%}
+
+
+        {% endfor %}
+
+      {% endfor %}
+
+    </div>
+
     <div class="collection">
       <div class="collection-left">
         <div class="collection-items">
@@ -69,21 +136,6 @@
   let Scollections = {};
 </script>
 
-{% for collection in collections %}
-  <script>
-    Scollections['{{ collection.title }}'] = [];
-  </script>
-  {% for collection_product in collection.products %}
-    <script>
-      console.log('{{ collection.title }}');
-      console.log('{{ collection_product.title }}');
-      console.log('{{ collection_product.url }}');
-      Scollections['{{ collection.title }}'].push({"id": "{{collection_product.id}}", "title": "{{collection_product.title}}", "href": "{{collection_product.url}}", "url": "{{ collection_product.featured_image  }}"});
-    </script>
-  {% endfor %}
-
-{% endfor %}
-
 {% style %}
 
   .collections-container {
@@ -110,6 +162,8 @@
 
   .collection {
     position: relative;
+    display: inline-block;
+    vertical-align: middle;
     height: 25em;
     width: 15em;
     overflow: hidden;
@@ -124,6 +178,16 @@
     margin-bottom: 1em;
     width: 100%;
     border-bottom: 0.1em solid #ffc2c2;
+  }
+
+  .collection-title-name {
+    position: relative;
+    height: fit-content;
+    margin-bottom: 0.7em;
+    border-bottom: 0.1em solid #ffc2c2;
+    font-size: 1.8em;
+    margin-top: 1em;
+    margin-bottom: 1em;
   }
 
   .collection-item {

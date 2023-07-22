@@ -1,0 +1,110 @@
+{% schema %}
+  {
+    "name": "DIV",
+    "settings": [],
+    "presets": [
+      {
+        "name": "anywears-div"
+      }
+    ]
+  }
+{% endschema %}
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link
+  rel="preconnect"
+  href="https://fonts.gstatic.com"
+  crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300&family=Roboto+Mono:wght@200;300;400;500&display=swap" rel="stylesheet">
+
+<div class="fitspo-container" style="background-image: url({{ "52101381410_a8c6686097_o.jpg" | asset_url }})">
+  <div class="fitspo-inner">
+    <div class="divider-icon" style="background-image: url('{{ "Bucket-1s-200px.gif" | asset_url }}')"></div>
+    <div class="divider-title">Hand picked treasures.<br>Elegantly styled.<br>For you.</div>
+  </div>
+</div>
+
+{% style %}
+
+  .fitspo-container {
+    position: relative;
+    display: block;
+    width: 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+    padding: 4.5em;
+    border-top: 0.4em solid #FFC2C2;
+    border-bottom: 0.4em solid #FFC2C2;
+    font-family: "Inter";
+  }
+
+  .fitspo-inner {
+    position: relative;
+    width: fit-content;
+    height: fit-content;
+    left: 50%;
+    transform: translateX(-50%);
+    color: #fff;
+    padding: 1.5em;
+    line-height: 2em;
+  }
+
+  .fitspo-title {
+    position: relative;
+    font-family: "Roboto Mono";
+    font-size: 1.65em;
+    box-sizing: border-box;
+    margin-bottom: 0.5em;
+  }
+
+  .fitspo-big {
+    position: relative;
+    font-weight: bold !important;
+    display: inline-block;
+  }
+
+  .fitspo-small {
+    position: relative;
+    display: inline-block;
+    font-size: 200 !important;
+  }
+
+  .fitspo-descriptions {
+    line-height: 1.5em;
+  }
+
+  .fitspo-description {
+    position: relative;
+    font-size: 1.25em;
+  }
+
+  .divider-title {
+    position: relative;
+    font-size: 1.65em;
+    text-align: center;
+  }
+
+  .divider-icon {
+    position: relative;
+    display: block !important;
+    height: 5em;
+    width: 5em;
+    margin-bottom: 1em;
+    left: 50%;
+    transform: translateX(-50%);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+  }
+
+  .noun {
+    color: #FF7575;
+    font-weight: bold;
+  }
+
+  .bold {
+    font-weight: bold;
+  }
+{% endstyle %}

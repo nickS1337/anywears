@@ -10,8 +10,8 @@
   }
 {% endschema %}
 
-{{ "jquery.min.js" | script_tag }}
-{{ "jquery-ui.min.js" | script_tag }}
+<script src="{{ "jquery.min.js" | asset_url }}"></script>
+<script src="{{ "jquery-ui.min.js" | asset_url }}"></script>
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link
@@ -32,7 +32,7 @@
       </script>
 
       {% for collection in collections %}
-        {% if collection.size != 0 %}
+        {% if collection.size != 0 and collection.products.size != 0 %}
           <div class="collection-title-name">{{ collection.title }}</div>
         {% endif %}
         <script>
@@ -43,100 +43,145 @@
             Scollections[{{ collection.id }}].push({"id": "{{collection_product.id}}", "title": "{{collection_product.title}}", "href": "{{collection_product.url}}", "url": "{{ collection_product.featured_image  }}"});
           </script>
 
-          {%- if forloop.number < 5 -%}
+          {%- if forloop.index0 < 4 -%}
             <div class="collection" id="{{ collection_product.id }}">
               <div class="collection-left">
-                <div class="collection-items">
-                  <div class="collection-item">
-                    <div class="collection-item-top" style="background-image: url({{ collection_product.url }})">
-                      <div class="collection-item-overlay"></div>
-                      <div class="collection-item-title">{{ collection_product.title }}</div>
-                    </div>
-                    <div class="collection-item-bottom">
-                      <div class="collection-item-title">{{ collection_product.title }}</div>
-                      <div class="collection-item-price">$49.99</div>
-                      <div class="explore-item">
-                        <div class="explore-item-icon" style="background-image: url('{{ "click.png" | asset_url }}')"></div>
-                        <div class="explore-item-txt">Explore this item</div>
+
+                <a href="{{ collection_product.url  }}">
+                  <div class="collection-items">
+                    <div class="collection-item">
+                      <div class="collection-item-top" style="background-image: url({{ collection_product.url }})">
+                        <div class="collection-overlay" style="display: block;"></div>
+                        <div class="collection-item-title">{{ collection_product.title }}</div>
+                      </div>
+                      <div class="collection-item-bottom">
+                        <div class="collection-item-title">{{ collection_product.title }}</div>
+                        <div class="collection-item-price">${{ collection_product.price }}</div>
+                        <div class="explore-item">
+                          <div class="explore-item-icon" style="background-image: url('{{ "click.png" | asset_url }}')"></div>
+                          <div class="explore-item-txt">Explore this item</div>
+                        </div>
                       </div>
                     </div>
                   </div>
-                </div>
+                </a>
+
               </div>
               <div class="collection-right">
                 <div class="collection-items">
-                  <div class="collection-item">
-                    <div class="collection-item-top" style="background-image: url({{ collection_product.featured_image }})">
-                      <div class="collection-item-overlay"></div>
-                      <div class="collection-item-title">{{ collection_product.title }}</div>
-                    </div>
-                    <div class="collection-item-bottom">
-                      <div class="collection-item-title">{{ collection_product.title }}</div>
-                      <div class="collection-item-price">$49.99</div>
-                      <div class="explore-item">
-                        <div class="explore-item-icon" style="background-image: url('{{ "click.png" | asset_url }}')"></div>
-                        <div class="explore-item-txt">Explore this item</div>
+                  <a href="{{ collection_product.url  }}">
+                    <div class="collection-item">
+                      <div class="collection-item-top" style="background-image: url('http://cdn.shopify.com/s/files/1/0757/0164/9708/{{ collection_product.featured_image }}')">
+                        <div class="collection-overlay" style="display: block;"></div>
+                        <div class="collection-item-title">{{ collection_product.title }}</div>
                       </div>
-                    </div>
+                      <div class="collection-item-bottom">
+                        <div class="collection-item-title">{{ collection_product.title }}</div>
+                        <div class="collection-item-price">${{ collection_product.price }}</div>
+                        <div class="explore-item">
+                          <div class="explore-item-icon" style="background-image: url('{{ "click.png" | asset_url }}')"></div>
+                          <div class="explore-item-txt">Explore this item</div>
+                        </div>
+                      </div>
+                    </a>
                   </div>
                 </div>
               </div>
             </div>
+
           {%- endif -%}
 
-
         {% endfor %}
+
+        {% if collection.size != 0 and collection.products.size != 0 %}
+          <a href="{{ collection.url }}" style="color: #000; text-decoration: none;">
+            <div class="explore-collection">
+              <div class="explore-collection-txt">Explore this collection</div>
+              <div class="explore-collection-icon" style="display: inline-block; background-image: url('{{ "arrow_circle_right.png" | asset_url  }}')"></div>
+            </div>
+          </a>
+        {% endif %}
 
       {% endfor %}
 
     </div>
 
-    <div class="collection">
-      <div class="collection-left">
-        <div class="collection-items">
-          <div class="collection-item">
-            <div class="collection-item-top">
-              <div class="collection-item-overlay"></div>
-              <div class="collection-item-title">Example Product</div>
-            </div>
-            <div class="collection-item-bottom">
-              <div class="collection-item-title">Example Product</div>
-              <div class="collection-item-price">$49.99</div>
-              <div class="explore-item">
-                <div class="explore-item-icon" style="background-image: url('{{ "click.png" | asset_url }}')"></div>
-                <div class="explore-item-txt">Explore this item</div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="collection-right">
-        <div class="collection-items">
-          <div class="collection-item">
-            <div class="collection-item-top">
-              <div class="collection-item-overlay"></div>
-              <div class="collection-item-title">Example Product</div>
-            </div>
-            <div class="collection-item-bottom">
-              <div class="collection-item-title">Example Product</div>
-              <div class="collection-item-price">$49.99</div>
-              <div class="explore-item">
-                <div class="explore-item-icon" style="background-image: url('{{ "click.png" | asset_url }}')"></div>
-                <div class="explore-item-txt">Explore this item</div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
+    <!--<div class="collection">
+    <div class="collection-left">
+    <div class="collection-items">
+    <div class="collection-item">
+    <div class="collection-item-top">
+    <div class="collection-item-overlay"></div>
+    <div class="collection-item-title">Example Product</div>
     </div>
-  </div>
+    <div class="collection-item-bottom">
+    <div class="collection-item-title">Example Product</div>
+    <div class="collection-item-price">$49.99</div>
+    <div class="explore-item">
+    <div class="explore-item-icon" style="background-image: url('{{ "click.png" | asset_url }}')"></div>
+    <div class="explore-item-txt">Explore this item</div>
+    </div>
+    </div>
+    </div>
+    </div>
+    </div>
+    <div class="collection-right">
+    <div class="collection-items">
+    <div class="collection-item">
+    <div class="collection-item-top">
+    <div class="collection-item-overlay"></div>
+    <div class="collection-item-title">Example Product</div>
+    </div>
+    <div class="collection-item-bottom">
+    <div class="collection-item-title">Example Product</div>
+    <div class="collection-item-price">$49.99</div>
+    <div class="explore-item">
+    <div class="explore-item-icon" style="background-image: url('{{ "click.png" | asset_url }}')"></div>
+    <div class="explore-item-txt">Explore this item</div>
+    </div>
+    </div>
+    </div>
+    </div>
+    </div>
+    </div>--></div>
 </div>
 
 <script>
-  let Scollections = {};
+
+  function changeTile(collection_id, product_id, timeout) {}
 </script>
 
 {% style %}
+
+  .explore-collection {
+    position: relative;
+    margin-top: 2em;
+    cursor: pointer;
+  }
+
+  .explore-collection:hover .explore-collection-txt {
+    margin-right: 2em;
+  }
+
+  .explore-collection-txt {
+    position: relative;
+    display: inline-block;
+    vertical-align: middle;
+    font-size: 1.5em;
+    margin-right: 1em;
+    transition: 0.4s ease all;
+  }
+
+  .explore-collection-icon {
+    position: relative;
+    display: inline-block !important;
+    vertical-align: middle;
+    height: 1.5em;
+    width: 1.5em;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+  }
 
   .collections-container {
     position: relative;
@@ -196,6 +241,7 @@
     vertical-align: middle;
     height: 25em;
     width: 15em;
+    margin: 0.25em;
     border-radius: 15px;
     overflow: hidden;
     background-color: #ccc;
@@ -229,9 +275,13 @@
   }
 
   .collection-item-top {
+    color: #fff;
     top: 0;
     left: 0;
     background-color: #ccc;
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
   }
 
   .collection-item-bottom {
@@ -279,9 +329,12 @@
   }
   .collection-item:hover .collection-item-top {
     top: -100%
-  };
-  .collection-item-overlay {
+  }
+  .collection-overlay {
     position: absolute;
+    display: block !important;
+    top: 0;
+    left: 0;
     height: 100%;
     width: 100%;
     background-color: #ffc2c2;

@@ -15,6 +15,14 @@
   <div class="footer-inner">
     <div class="footer-item">
       <div class="footer-title">anywears.shop</div>
+    </div>
+    <div class="footer-item">
+      <div class="footer-title">About us</div>
+      <div class="footer-description">ANYWEARS is a hobby turned business. We obtain our products from only the most ethical and sustainable sources.</div>
+    </div>
+    <div class="footer-item">
+      <div class="flag" style="background-image: url('{{ "AUSTRALIA.png" | asset_url }}')"></div>
+      <div class="flag" style="background-image: url('{{ "LGBTQ.jpeg" | asset_url }}')"></div>
       <div class="footer-description">2023<br>Melbourne, Victoria</div>
     </div>
   </div>
@@ -29,6 +37,7 @@
     padding: 5em 0;
     height: fit-content;
     background-color: #f00;
+    font-family: "Inter"
   }
 
   .footer-inner {
@@ -46,11 +55,34 @@
     vertical-align: middle;
     text-align: left;
     color: #fff;
+    box-sizing: border-box;
+    padding-left: 1em;
+    padding-right: 1em;
+    max-width: 30em;
+  }
+
+  .footer-description {
+    position: relative;
+    font-size: 1.2em;
   }
 
   .footer-title {
     position: relative;
     font-size: 1.5em;
+    margin-bottom: 0.5em;
     font-weight: 500;
+  }
+
+  .flag {
+    position: relative;
+    display: inline-block;
+    vertical-align: middle;
+    margin-right: 0.5em;
+    margin-bottom: 0.5em;
+    height: 2em;
+    width: 4em;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
   }
 {% endstyle %}
